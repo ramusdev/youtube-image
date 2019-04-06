@@ -15,10 +15,8 @@ class YoutubeImage
 	/**
 	 * Url video of youtube
 	 *
-	 * @since 1.0.0
-	 * @param $url link for youtube video
-	 */
-	public function __construct($url) 
+    */
+	public function __construct(string $url) 
 	{
 	    $pattern = 
 	        '%^# Match any youtube URL
@@ -42,10 +40,8 @@ class YoutubeImage
 	/**
 	 * Return youtube video id
 	 *
-	 * @since 1.0.0
-	 * @return string video id
 	 */
-	public function getId()
+	public function getId() : string
 	{
 		if ($this->result) {
 			return $this->matches[1];
@@ -55,10 +51,8 @@ class YoutubeImage
 	/**
 	 * Return image max res or hq
 	 *
-	 * @since 1.0.0
-	 * @return string link image
-	 */
-	public function getImage($size = 'medium')
+     */
+	public function getImage(string $size = 'medium') : string
 	{
 		$hq = 'https://img.youtube.com/vi/' . $this->getId() . '/hqdefault.jpg'; 
 		$max = 'https://img.youtube.com/vi/' . $this->getId() . '/maxresdefault.jpg';
@@ -74,14 +68,10 @@ class YoutubeImage
 	/**
 	 * Return embed youtube video link
 	 *
-	 * @since 1.0.0
-	 * @return string video embed link
-	 */
-	public function getVideo()
+	*/
+	public function getVideo() : string
 	{
 		$video = 'https://youtube.com/embed/' . $this->getId();
 		return $video;
 	}
 }
-
-?>
