@@ -52,13 +52,12 @@ class YoutubeImage
 	 * Return image max res or hq
 	 *
      */
-	public function getImage(string $size = 'medium') : string
+	public function getImageLink(string $size = 'medium') : string
 	{
 		$hq = 'https://img.youtube.com/vi/' . $this->getId() . '/hqdefault.jpg'; 
 		$max = 'https://img.youtube.com/vi/' . $this->getId() . '/maxresdefault.jpg';
 
 		if ($size == 'large') {
-			//if ( ! @getimagesize( $max ) ) return $hq;
 			return $max;
 		}
 
@@ -69,9 +68,8 @@ class YoutubeImage
 	 * Return embed youtube video link
 	 *
 	*/
-	public function getVideo() : string
+	public function getEmbededLink() : string
 	{
-		$video = 'https://youtube.com/embed/' . $this->getId();
-		return $video;
+        return 'https://youtube.com/embed/' . $this->getId();
 	}
 }
